@@ -4,4 +4,5 @@ bundle/
 bundle.zip
 .env
 dist/
-.idea
+build/
+package-lock.json

@@ -1,19 +1,21 @@
-import { BaseComponent, Component, Global } from '@jovotech/framework';
-import { LoveHatePizzaComponent } from './LoveHatePizzaComponent';
+import { BaseComponent, Component, Global, Intents } from '@jovotech/framework';
+import { NombreAplicacionComponent } from './NombreAplicacionComponent';
+import { SaludoInicial } from './SaludoInicialComponent';
 
-/*
-|--------------------------------------------------------------------------
-| Global Component
-|--------------------------------------------------------------------------
-|
-| The global component handlers can be reached from anywhere in the app
-| Learn more here: www.jovo.tech/docs/components#global-components
-|
-*/
 @Global()
 @Component()
 export class GlobalComponent extends BaseComponent {
-  LAUNCH() {
-    return this.$redirect(LoveHatePizzaComponent);
+  @Intents(['Saludo Inicial'])
+  async LAUNCH(){
+    await this.$send('Hola Señor Lorenzatto');
+    return this.suggestOptions();
+  }
+
+  @Intents(['HelpIntent'])
+  suggestOptions() {
+    return this.$send({
+      message: 'En que lo puedo ayudar hoy',
+      quickReplies: ['Temperatura', 'Que comer?'],
+    });
   }
 }

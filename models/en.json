@@ -6,7 +6,8 @@
       "phrases": [
         "yes",
         "yes please",
-        "sure"
+        "sure",
+        "si"
       ]
     },
     "NoIntent": {
@@ -14,6 +15,20 @@
         "no",
         "no thanks"
       ]
+    },
+    "MyNameIsIntent":{
+      "phrases":[
+        "jarvis",
+        "Agustin"
+      ]
+    },
+    "SaludoInicial":{
+      "phrases":[
+        "Hola",
+        "Jarvis",
+        "Hola Jarvis"
+      ]
     }
   }
+
 }
